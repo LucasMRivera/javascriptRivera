@@ -1,37 +1,43 @@
-function random_item(personajes) {
-    return personajes[Math.floor(Math.random()*personajes.length)];
-     }
-const personajes = ["naruto", "sasuke", "shikamaru", "kakashi", "sakura", "chouji", "ino", "hinata", "shino", "kiba"]
-const personaje = random_item(personajes);
+// objetos
+
+const objPersonajes = [
+  {nombre: "naruto", aldea: "konoha", jutsu: "aire"},
+  {nombre: "sakura", aldea: "konoha", jutsu: "tierra"},
+  {nombre: "sasuke", aldea: "konoha", jutsu: "rayo"},
+]
+
+// funciones 
+
+function random_item(objPersonajes) {
+  return objPersonajes[Math.floor(Math.random()*objPersonajes.length)].nombre;
+}
+// dom
+
+const intentosRes = document.getElementById('intentosRes');
+const inputUs = document.getElementById('inputUs');
+const erroresUs = document.getElementById('erroresUs');
+const mensajeFinal = document.getElementById('mensajeFinal');
+
+// variables
+
+const personaje = random_item(objPersonajes)
 console.log(personaje)
-const errores = []
-let respuesta
-let vidas 
-const container = document.getElementById("container")
-const vidasRestantes = document.getElementById("vidasRestantes")
-const ganaste = document.getElementById("ganaste")
-alert("Bienvenido a Narutole. Para salir en cualquier momento ingrese ESC")
+const intentos = 8
+console.log(intentos)
+const erroresUsuario = []
+console.log(erroresUsuario)
 
-for(vidas = 4; vidas >= 0;vidas--){
-  respuesta = prompt("Ingrese el nombre de un personaje").toLowerCase()
-  errores.push(respuesta)
-  container.innerHTML = `<h2><del>${errores}</h2>`
+inputUs.addEventListener('change', (e) => {
+  const respuesta = document.getElementById('inputUs').value
   console.log(respuesta)
+  erroresUsuario.push(respuesta)
+  console.log(erroresUsuario)
 
-  if(respuesta == "esc"){
-    alert("gracias por participar.")
-    break;
-  }
- 
-  if(respuesta == personaje){
-    ganaste.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje} !!</h1>`
-    
-    break;
+  if (respuesta === personaje){
+    mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje} !!</h1>`
   } else {
-    vidasRestantes.innerHTML = `<h2>Te quedan ${vidas} vidas</h2>`
-    
-    console.log(errores)
+    intentosRes.innerHTML = `<h2>Te quedan ${intentos} vidas</h2>`
+    erroresUs.innerHTML = `<h3><del>${erroresUsuario}</h3>`
   }
-} 
-
+})
 
