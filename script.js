@@ -41,14 +41,16 @@ function random_item(objPersonajes) {
   return objPersonajes[Math.floor(Math.random()*objPersonajes.length)]//.nombre;
 }
 
+//
+
 function intentosClick(click){
   const totalIntentos = document.getElementById('totalIntentos');
-  const restar = parseInt(totalIntentos.innerText) - click;
+  const restar = parseInt(totalIntentos.innerText) + click;
   totalIntentos.innerText = restar
 }
 // dom
 
-const intentosRes = document.getElementById('intentosRes');
+
 const inputUs = document.getElementById('inputUs');
 const clickUs = document.getElementById('clickUs');
 const erroresUs = document.getElementById('erroresUs');
@@ -96,6 +98,8 @@ clickUs.addEventListener('click', (e) => {
 
   if (respuesta === personaje.nombre){
     mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
+    clickUs.setAttribute('disabled', 'disabled')
+    inputUs.setAttribute('disabled', 'disabled')
   } else {
     erroresUs.innerHTML = `<h3><del>${erroresUsuario}</h3>`
     tablaRespuesta.innerHTML += 
@@ -110,7 +114,7 @@ clickUs.addEventListener('click', (e) => {
     const aldea = document.getElementById(`aldea${objetoUsuario.id}`);
     const jutsu = document.getElementById(`jutsu${objetoUsuario.id}`);
     const nivel = document.getElementById(`nivel${objetoUsuario.id}`);
-
+    
   // matchear aldea
 
   if (personaje.aldea == objetoUsuario.aldea){
@@ -142,14 +146,16 @@ clickUs.addEventListener('click', (e) => {
    }
   }
 
- 
+  
+
+  if(totalIntentos.innerHTML < 1){
+    clickUs.setAttribute('disabled', 'disabled')
+    inputUs.setAttribute('disabled', 'disabled')
+    mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
+  } 
+
 })
   
 
- // si se cumplieron todos los intentos bloquear input y mandar msj final
-
- //if((respuesta === personaje.nombre) || (totalIntentos.innerText === 8))
-
- // clickUs.setAttribute('disabled', 'disabled')
-
+ 
  
