@@ -1,6 +1,5 @@
 // objetos
 
-
 class Personaje{
   constructor(id,nombre, aldea, jutsu, nivel){
     this.id = id;
@@ -50,13 +49,12 @@ function intentosClick(click){
 }
 // dom
 
-
 const inputUs = document.getElementById('inputUs');
 const clickUs = document.getElementById('clickUs');
 const erroresUs = document.getElementById('erroresUs');
 const mensajeFinal = document.getElementById('mensajeFinal');
 const tablaRespuesta = document.getElementById('tablaRespuesta');
-
+const resetear = document.getElementById('resetear');
 
 // evento keyup para filtrar respuestas
 // bloquear input si no coincide con un personaje
@@ -100,6 +98,7 @@ clickUs.addEventListener('click', (e) => {
     mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
     clickUs.setAttribute('disabled', 'disabled')
     inputUs.setAttribute('disabled', 'disabled')
+    // poner settimeout para resetear
   } else {
     erroresUs.innerHTML = `<h3><del>${erroresUsuario}</h3>`
     tablaRespuesta.innerHTML += 
@@ -146,14 +145,14 @@ clickUs.addEventListener('click', (e) => {
    }
   }
 
-  
+  // cortar juego
 
   if(totalIntentos.innerHTML < 1){
     clickUs.setAttribute('disabled', 'disabled')
     inputUs.setAttribute('disabled', 'disabled')
     mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
+    // poner settimeout para resetear
   } 
-
 })
   
 
