@@ -32,6 +32,7 @@ console.log(personaje)
 const erroresUsuario = []
 console.log(erroresUsuario)
 
+// storage
 
 
 // funciones 
@@ -96,6 +97,7 @@ clickUs.addEventListener('click', (e) => {
 
   if (respuesta === personaje.nombre){
     mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
+    localStorage.setItem('ultimoAdivinado', personaje.nombre)
     clickUs.setAttribute('disabled', 'disabled')
     inputUs.setAttribute('disabled', 'disabled')
     // poner settimeout para resetear
@@ -151,6 +153,7 @@ clickUs.addEventListener('click', (e) => {
     clickUs.setAttribute('disabled', 'disabled')
     inputUs.setAttribute('disabled', 'disabled')
     mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
+    localStorage.setItem('ultimoEquivocado', personaje.nombre)
     // poner settimeout para resetear
   } 
 })
