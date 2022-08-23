@@ -75,12 +75,12 @@ const rows = document.querySelectorAll("tbody tr");
       console.log(rows);
 
 inputUs.addEventListener("keyup", function (e) {
-        const q = ev.target.value.toLowerCase();
-        filas.forEach((fila) => {
-          if (fila.querySelector("td").textContent.toLowerCase().startsWith(q)){
-              fila.style.display = ""               
+        const q = e.target.value.toLowerCase();
+        rows.forEach((row) => {
+          if (row.querySelector("td").textContent.toLowerCase().startsWith(q)){
+              row.style.display = ""               
             } else {
-              fila.style.display = "none";              
+              row.style.display = "none";              
             }
         });
       });
