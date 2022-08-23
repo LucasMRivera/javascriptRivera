@@ -61,14 +61,6 @@ function intentosClick(click){
   totalIntentos.innerText = restar
 }
 
-/*listaPersonajes.forEach(function(item) {
-  let li = document.createElement("li");
-  let text = document.createTextNode(item);
-  li.appendChild(text);
-  document.getElementById("listaFiltro").appendChild(li);
-});*/
-
-
 
 const rows = document.querySelectorAll("tbody tr");
 
@@ -84,12 +76,6 @@ inputUs.addEventListener("keyup", function (e) {
             }
         });
       });
-
-
-// evento keyup para filtrar respuestas
-// bloquear input si no coincide con un personaje
-
-
 
 // cada vez que hace click mandar respuesta a la tabla
 
@@ -126,20 +112,32 @@ clickUs.addEventListener('click', (e) => {
   // dom tabla
 
     const aldea = document.getElementById(`aldea${objetoUsuario.id}`);
+    //const jutsu = document.getElementById(`jutsu${objetoUsuario.id}`);
+    //const nivel = document.getElementById(`nivel${objetoUsuario.id}`);
     const jutsu = document.getElementById(`jutsu${objetoUsuario.id}`);
     const nivel = document.getElementById(`nivel${objetoUsuario.id}`);
-    
   // matchear aldea
 
-   (personaje.aldea == objetoUsuario.aldea) ? aldea.style.color = "green" :  aldea.style.color = "red"
-    
+   if(personaje.aldea == objetoUsuario.aldea){ 
+    aldea.style.color = "green" 
+   } else {
+    aldea.style.color = "red"
+  }
   // matchear jutsu
 
-  (personaje.jutsu == objetoUsuario.jutsu) ? jutsu.style.color = "green" : jutsu.style.color = "red"
+  if(personaje.jutsu == objetoUsuario.jutsu){
+     jutsu.style.color = "green" 
+   } else { 
+     jutsu.style.color = "red"
+   }
    
   // matchear nivel
 
-  (personaje.nivel == objetoUsuario.nivel) ? nivel.style.color = "green" : nivel.style.color = "red"
+  if(personaje.nivel == objetoUsuario.nivel) {
+    nivel.style.color = "green" 
+  } else {
+    nivel.style.color = "red"
+  }
   
   
 

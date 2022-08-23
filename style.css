@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url('./imagenes/konoha.jpeg');
+  background-image: url('./imagenes/konoha.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -31,14 +31,19 @@ h1 {
   justify-content: center;
 }
 
+.errores-us {
+  color: red;
+}
+
 .container-input {
-  margin-left: 400px;
+  margin-left: 350px;
 }
 
 input {
   align-items: center;
   justify-content: center;
   height: 40px;
+  width: 400px;
   border-radius: 5%;
   border: solid black 1px
 }
@@ -47,14 +52,18 @@ input {
   background-color: blue;
   width: 100px;
   height: 40px;
+  border: 1px blue solid;
+  border-radius: 7px;
+  color: white;
 }
 
 .filtro{
   background-color: white;
-  width: 200px;
+  width: 400px;
   list-style: none;
   align-items: flex-start;
- 
+  transition: 1s ease;
+  background: rgba(255,255,255,0.5);
 }
 
 table, th, td {
@@ -66,6 +75,7 @@ table, th, td {
 table {
   background-color: white;
   width: 1000px;
+  
 }
 
 th {
