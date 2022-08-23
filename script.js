@@ -31,23 +31,14 @@ const personaje = random_item(objPersonajes)
 console.log(personaje)
 const erroresUsuario = []
 console.log(erroresUsuario)
+const listaPersonajes = objPersonajes.map(function(element){
+  return element.nombre;
+})
+console.log(listaPersonajes)
+
 
 // storage
 
-
-// funciones 
-
-function random_item(objPersonajes) {
-  return objPersonajes[Math.floor(Math.random()*objPersonajes.length)]//.nombre;
-}
-
-//
-
-function intentosClick(click){
-  const totalIntentos = document.getElementById('totalIntentos');
-  const restar = parseInt(totalIntentos.innerText) + click;
-  totalIntentos.innerText = restar
-}
 // dom
 
 const inputUs = document.getElementById('inputUs');
@@ -57,31 +48,35 @@ const mensajeFinal = document.getElementById('mensajeFinal');
 const tablaRespuesta = document.getElementById('tablaRespuesta');
 const resetear = document.getElementById('resetear');
 
+
+// funciones 
+
+function random_item(objPersonajes) {
+  return objPersonajes[Math.floor(Math.random()*objPersonajes.length)]//.nombre;
+}
+
+function intentosClick(click){
+  const totalIntentos = document.getElementById('totalIntentos');
+  const restar = parseInt(totalIntentos.innerText) + click;
+  totalIntentos.innerText = restar
+}
+
+listaPersonajes.forEach(function(item) {
+  let li = document.createElement("li");
+  let text = document.createTextNode(item);
+  li.appendChild(text);
+  document.getElementById("listaFiltro").appendChild(li);
+});
+
+
+
+
 // evento keyup para filtrar respuestas
 // bloquear input si no coincide con un personaje
 
-inputUs.addEventListener('keyup', (e) =>{
-  const buscarPersonaje = e.target.value;
-  const listaFiltro = objPersonajes.filter( personaje =>{
-    return personaje.nombre.includes(buscarPersonaje)
-  });
-  console.log(listaFiltro)
-})
-// validar si lo que esta en el input es un personaje o no, bloquear boton
-  
-/*if(listaFiltro.nombre.find(objPersonajes.nombre)){
-    clickUs.setAttribute('disabled', 'disabled')
-  } 
-
-})*/
 
 
-
-
-// evento click
 // cada vez que hace click mandar respuesta a la tabla
-
-
 
 clickUs.addEventListener('click', (e) => {
   const respuesta = document.getElementById('inputUs').value.toLowerCase()
@@ -118,34 +113,17 @@ clickUs.addEventListener('click', (e) => {
     
   // matchear aldea
 
-  if (personaje.aldea == objetoUsuario.aldea){
-    aldea.style.color = "green";
-    console.log("bien")
-   } else {
-    aldea.style.color = "red";
-    console.log("mal")
-   }
+   (personaje.aldea == objetoUsuario.aldea) ? aldea.style.color = "green" :  aldea.style.color = "red"
+    
+  // matchear jutsu
 
-   // matchear jutsu
+  (personaje.jutsu == objetoUsuario.jutsu) ? jutsu.style.color = "green" : jutsu.style.color = "red"
+   
+  // matchear nivel
 
-  if (personaje.jutsu == objetoUsuario.jutsu){
-    jutsu.style.color = "green";
-    console.log("bien")
-   } else {
-    jutsu.style.color = "red";
-    console.log("mal")
-   }
-
-   // matchear nivel
-
-  if (personaje.nivel == objetoUsuario.nivel){
-    nivel.style.color = "green";
-    console.log("bien")
-   } else {
-    nivel.style.color = "red";
-    console.log("mal")
-   }
-  }
+  (personaje.nivel == objetoUsuario.nivel) ? nivel.style.color = "green" : nivel.style.color = "red"
+  
+  
 
   // cortar juego
 
@@ -156,6 +134,7 @@ clickUs.addEventListener('click', (e) => {
     localStorage.setItem('ultimoEquivocado', personaje.nombre)
     // poner settimeout para resetear
   } 
+  }
 })
   
 
