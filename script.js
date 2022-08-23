@@ -61,14 +61,29 @@ function intentosClick(click){
   totalIntentos.innerText = restar
 }
 
-listaPersonajes.forEach(function(item) {
+/*listaPersonajes.forEach(function(item) {
   let li = document.createElement("li");
   let text = document.createTextNode(item);
   li.appendChild(text);
   document.getElementById("listaFiltro").appendChild(li);
-});
+});*/
 
 
+
+const rows = document.querySelectorAll("tbody tr");
+
+      console.log(rows);
+
+inputUs.addEventListener("keyup", function (e) {
+        const q = ev.target.value.toLowerCase();
+        filas.forEach((fila) => {
+          if (fila.querySelector("td").textContent.toLowerCase().startsWith(q)){
+              fila.style.display = ""               
+            } else {
+              fila.style.display = "none";              
+            }
+        });
+      });
 
 
 // evento keyup para filtrar respuestas
@@ -92,9 +107,12 @@ clickUs.addEventListener('click', (e) => {
 
   if (respuesta === personaje.nombre){
     mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
-    localStorage.setItem('ultimoAdivinado', personaje.nombre)
-    clickUs.setAttribute('disabled', 'disabled')
-    inputUs.setAttribute('disabled', 'disabled')
+    localStorage.setItem('ultimoAdivinado', personaje.nombre);
+    clickUs.setAttribute('disabled', 'disabled');
+    inputUs.setAttribute('disabled', 'disabled');
+    setTimeout(function(){
+      location.reload();
+    }, 5000);
     // poner settimeout para resetear
   } else {
     erroresUs.innerHTML = `<h3><del>${erroresUsuario}</h3>`
@@ -132,6 +150,9 @@ clickUs.addEventListener('click', (e) => {
     inputUs.setAttribute('disabled', 'disabled')
     mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
     localStorage.setItem('ultimoEquivocado', personaje.nombre)
+    setTimeout(function(){
+      location.reload();
+    }, 5000);
     // poner settimeout para resetear
   } 
   }

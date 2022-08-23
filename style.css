@@ -49,17 +49,18 @@ input {
   height: 40px;
 }
 
-.filtro {
+.filtro{
   background-color: white;
   width: 200px;
   list-style: none;
   align-items: flex-start;
-  display: none;
+ 
 }
 
 table, th, td {
   border: 1px solid;
 }
+
 
 
 table {
