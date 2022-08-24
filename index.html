@@ -16,10 +16,10 @@
         <h3>intentos : <span id="totalIntentos">8</span></h3>
       </div>
     <div class="container-input">
-      <input type="text" id="inputUs" placeholder="Ingrese un personaje..." class="input-us">
+      <input type="text" id="inputUs" placeholder="Ingrese un personaje de Naruto" class="input-us">
       <button id="clickUs"  class="button-game" onclick="intentosClick(-1)">Enviar</button>
-      <table  class="filtro">
-        <tbody>
+      <table class="tablaFiltrada">
+        <tbody class="filtro">
           <tr>
             <td>naruto</td>
           </tr>
@@ -70,6 +70,7 @@
       </div>
   </div>
   <div id="mensajeFinal" class="mensaje-fin"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.29/dist/sweetalert2.all.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

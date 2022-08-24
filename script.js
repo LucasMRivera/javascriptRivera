@@ -92,7 +92,13 @@ clickUs.addEventListener('click', (e) => {
   // agregar fila con resultados
 
   if (respuesta === personaje.nombre){
-    mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
+    //mensajeFinal.innerHTML = `<h1>!! Felicitaciones, la respuesta era ${personaje.nombre} !!</h1>`
+    Swal.fire({
+      icon: 'success',
+      title: 'Felicitaciones',
+      text: `la respuesta era ${personaje.nombre}!`,
+      
+    })
     localStorage.setItem('ultimoAdivinado', personaje.nombre);
     clickUs.setAttribute('disabled', 'disabled');
     inputUs.setAttribute('disabled', 'disabled');
@@ -112,8 +118,6 @@ clickUs.addEventListener('click', (e) => {
   // dom tabla
 
     const aldea = document.getElementById(`aldea${objetoUsuario.id}`);
-    //const jutsu = document.getElementById(`jutsu${objetoUsuario.id}`);
-    //const nivel = document.getElementById(`nivel${objetoUsuario.id}`);
     const jutsu = document.getElementById(`jutsu${objetoUsuario.id}`);
     const nivel = document.getElementById(`nivel${objetoUsuario.id}`);
   // matchear aldea
@@ -146,7 +150,13 @@ clickUs.addEventListener('click', (e) => {
   if(totalIntentos.innerHTML < 1){
     clickUs.setAttribute('disabled', 'disabled')
     inputUs.setAttribute('disabled', 'disabled')
-    mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
+    //mensajeFinal.innerHTML = `<h1>Mejor suerte la proxima, la respuesta era ${personaje.nombre}</h1>`
+    Swal.fire({
+      icon: 'error',
+      title: 'Mejor suerte la proxima',
+      text: `la respuesta era ${personaje.nombre}!`,
+      
+    })
     localStorage.setItem('ultimoEquivocado', personaje.nombre)
     setTimeout(function(){
       location.reload();

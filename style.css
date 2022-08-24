@@ -57,15 +57,23 @@ input {
   color: white;
 }
 
+.tablaFiltrada {
+  width: 400px;
+  background: rgba(255,255,255,0.5);
+}
+
 .filtro{
   background-color: white;
-  width: 400px;
   list-style: none;
   align-items: flex-start;
   transition: 1s ease;
   background: rgba(255,255,255,0.5);
 }
 
+
+.filtro td {
+  width: 100px;
+}
 table, th, td {
   border: 1px solid;
 }
