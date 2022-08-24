@@ -70,9 +70,9 @@ inputUs.addEventListener("keyup", function (e) {
         const q = e.target.value.toLowerCase();
         rows.forEach((row) => {
           if (row.querySelector("td").textContent.toLowerCase().startsWith(q)){
-              row.style.display = ""               
+              row.classList.remove("display");             
             } else {
-              row.style.display = "none";              
+              row.classList.add("display");             
             }
         });
       });

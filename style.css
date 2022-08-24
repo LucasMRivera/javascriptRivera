@@ -78,7 +78,13 @@ table, th, td {
   border: 1px solid;
 }
 
+.display {
+  display: none;
+}
 
+.display-block {
+  display: block;
+}
 
 table {
   background-color: white;
