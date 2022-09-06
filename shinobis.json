@@ -1,0 +1,20 @@
+[
+  {
+    "nombre" : "naruto",
+    "aldea" : "konoha",
+    "jutsu" : "aire",
+    "nivel" : "genin"
+  },
+  {
+    "nombre" : "kakashi",
+    "aldea" : "konoha",
+    "jutsu" : "trueno",
+    "nivel" : "jounin"
+  },
+  {
+    "nombre" : "gaara",
+    "aldea" : "suna",
+    "jutsu" : "arena",
+    "nivel" : "genin"
+  }
+]
